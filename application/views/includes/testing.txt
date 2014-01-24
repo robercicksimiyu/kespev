@@ -1,0 +1,36 @@
+ <table>
+        <tr><td><Strong>Name</strong></td>
+          <td><input type 'text' name='fName' value='<?php echo $this->session->userdata('first_name');?>'><input type 'text' name='lName' value='<?php echo $this->session->userdata('last_name');?>'></td>
+        </tr>
+
+        <tr>
+          <td><strong>Username</strong</td>
+          <td><input type ='text' name='username' value='<?php echo $this->session->userdata('username');?>'></td>
+        </tr>
+        <tr>
+          <td><strong>Phone</strong></td>
+          <td><input type ='text' name='phone' value='<?php echo $this->session->userdata('phone');?>'></td>
+          </tr>
+        <tr>
+          <td><strong>Residence</strong></td>
+          <td><input type ='text'  name='location' value='<?php echo $this->session->userdata('location');?>'></td>
+        </tr>
+        <tr>
+          <td><strong>Sport</strong></td>
+          <td><input type ='text'  name='sport' value='<?php echo $this->session->userdata('fav_sport');?>'></td>
+        </tr>
+        <tr>
+          <td><strong>Event</strong></td>
+
+          <td>
+            <select name='option' id='option'>
+              <option id='opt_1' value='<?php echo $this->session->userdata('option');?>'><?php echo $this->session->userdata('option');?></option>
+              <option id='opt_1' value='Organizer'>Organizer</option>
+              <option id='opt_1' value='Participant'>Participant</option>
+            </select>
+          </td>
+          
+        </tr>
+        
+
+      </table> ",

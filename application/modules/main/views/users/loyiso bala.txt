@@ -1,0 +1,143 @@
+loyiso bala
+
+
+						<ul class="three_column">
+
+							<li>
+								<h1 class="titlecolor"><span class="circle">01.</span><br/>Join</h1>
+								<p><strong>Create Account.</strong></p>
+								<span>Be part of Kepev by joining creating and account with your email.</span>
+								<div id="message"></div>
+								</br>
+								<div id="signup">
+								<?php echo form_open('main/signup',array('id'=>"signupform"));?>
+									<input type="submit" class="button" value="Create Account" onblur="" onfocus=""/>
+								</form>
+								
+							</li>
+							<li>
+								<h1 class="titlecolor"><span class="circle">02.</span><br />Informed</h1>
+								<p><strong>Get Informed.</strong></p>
+								<span>Get all information of events taking place in your sporting area.</span>
+								
+							</li>
+							<li class="last">
+								<h1 class="titlecolor"><span class="circle">03.</span><br />Inform</h1>
+								<p><strong>Let us know.</strong></p>
+								<span>Inform us of any upcoming sporting events. It a free world. Enjoy</span>
+							</li>
+						</ul>
+						<div class="clear"></div><!-- clear float -->
+						</br>
+
+						<h1 class="titlecolor"><span class="circle">04.</span></h1>
+						
+						
+						<div id="signin">
+							<?php echo form_open('main/authenticate',array('id'=>'signinform'));?>
+							
+								<input type="text" class="inputbox" id="l_email" name="l_email" placeholder="e.g. example@you.com" value="" onblur="" onfocus=""/>
+								<input type="password" class="inputbox" id="l_password" name="l_password" placeholder="Enter you email" value="" onblur="" onfocus=""/>
+								<input type="submit" id="sin" class="button" value="Sign In" onblur="" onfocus=""/>
+							</form>
+
+						</div>
+
+					</div><!-- end #content -->
+					
+					<div id="sideright">
+						
+					<div class="sidebox">
+						<h1>Events Summary</h1>
+						<canvas id="canvas" height="250" width="300"></canvas>
+						<script>
+
+								var barChartData = {
+									labels : ["Athletics","Basketball","Handball","Hockey","Football","Rugby","Volleyball"],
+									datasets : [
+										{
+											fillColor : "#F38630",
+											strokeColor : "rgba(220,220,220,1)",
+											data : [
+											<?php echo $sports_num['athletics'];?>,
+											<?php echo $sports_num['basketball'];?>,
+											<?php echo $sports_num['handball'];?>,
+											<?php echo $sports_num['hockey'];?>,
+											<?php echo $sports_num['football'];?>,											
+											<?php echo $sports_num['rugby'];?>,
+											<?php echo $sports_num['volleyball'];?>
+											]
+										}
+										
+									]
+									
+								}
+
+							var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Bar(barChartData);
+
+							function IsEmail(email) {
+							        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+							        if(!regex.test(email)) {
+							           return false;
+							        }else{
+							           return true;
+							        }
+							}
+							$(function(){
+								$(' #signinforminput[type=submit]').attr('disabled',true)
+												.css({opacity:0.5});
+								$("#top").sticky({ topSpacing: 0,centre:true,className:"m-logo social"});
+
+								$("#signinform input[type=text]#l_email").keyup(function(){
+									
+									if($(this).val()!=''){
+										$('#signinform input[type=submit]#sin').attr('disabled',false)
+																				.css({opacity:1},5000);
+
+										
+									}else{
+										$('#signinform input[type=submit]').attr('disabled',true)
+												.css({opacity:0.5});
+										$('#signupform').show(300);	
+									}
+								});
+									//checking the sigin up form
+								/*$("#signupform input[type=text]#sup_mail").keyup(function(){
+									$('#message').show(200).html("<h1>Sign Up</h1> Thank you for making that step");
+									$('div#checker').html("<img src='<?php echo $images;?>facebook/loader.gif'>");
+
+									if($(this).val()!=''){
+										$('#signupform input[type=submit]').attr('disabled',false)
+																				.css({opacity:1},5000);
+										
+									}else{
+										$('#message').hide(400);
+										$('#signupform input[type=submit]').attr('disabled',true)
+												.css({opacity:0.5});
+
+
+									}
+								}).blur(function(){
+									if(IsEmail($("#signupform input[type=text]#sup_mail").val())!=false){
+										$('#message').hide(100);
+										$('div#checker').html("<img src='<?php echo $images;?>facebook/tick-1.png'>");
+									}else{
+										
+										$('div#checker').html("<img src='<?php echo $images;?>facebook/delete.png'>");
+										$('#signupform input[type=submit]').attr('disabled',true)
+												.css({opacity:0.5});
+										
+									}
+									
+								});*/
+
+								
+							});
+							
+							
+
+						</script>
+					</div>
+					</div><!-- end #sideright -->
+					<div class="clear"></div><!-- clear float -->
+				</div><!-- end #main -->
